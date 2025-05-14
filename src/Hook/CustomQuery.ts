@@ -1,35 +1,16 @@
-import { useQuery, UseQueryResult, QueryFunctionContext } from "@tanstack/react-query";
-
+import { useQuery } from "@tanstack/react-query";
 import { axiosInstanceExercise } from "../config/axios.config";
 
-interface IAuthenticatedQuery {
-  queryKey: readonly [string, ...unknown[]];
-  url: string;
-}
-
-const useCustomQuery = <T = any,>({ queryKey, url }: IAuthenticatedQuery): UseQueryResult<T, Error> => {
+const useCustomQuery = <T>(key: string, url: string) => {
   return useQuery({
-    queryKey,
-    queryFn: async ({ queryKey }: QueryFunctionContext): Promise<T> => {
+    queryKey: [key],
+    queryFn: async () => {
       try {
         if (!url) {
-          console.error('No URL provided for query:', queryKey);
           throw new Error('URL is required');
         }
 
-        console.log('Making API request:', {
-          url,
-          queryKey,
-          headers: axiosInstanceExercise.defaults.headers
-        });
-
         const { data } = await axiosInstanceExercise.get<T>(url);
-
-        console.log('API response:', {
-          url,
-          queryKey,
-          data
-        });
 
         if (!data) {
           throw new Error('No data received from API');
@@ -37,13 +18,7 @@ const useCustomQuery = <T = any,>({ queryKey, url }: IAuthenticatedQuery): UseQu
 
         return data;
       } catch (error: any) {
-        console.error('Query Error:', {
-          url,
-          queryKey,
-          error: error.message,
-          response: error.response?.data,
-          status: error.response?.status
-        });
+        console.error('Query Error:', error);
         throw error;
       }
     },

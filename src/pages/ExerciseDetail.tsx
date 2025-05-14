@@ -4,6 +4,16 @@ import useCustomQuery from "../Hook/CustomQuery";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+interface Exercise {
+  id: string;
+  name: string;
+  gifUrl: string;
+  bodyPart: string;
+  equipment: string;
+  target: string;
+  instructions: string[];
+}
+
 const ExerciseDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -18,10 +28,10 @@ const ExerciseDetail = () => {
   }, []);
 
   // Fetch exercise details only if id exists
-  const { data: exerciseDetail, isLoading, error } = useCustomQuery({
-    queryKey: ["exerciseDetail", id || ""],
-    url: id ? `/exercises/exercise/${id}` : "",
-  });
+  const { data: exerciseDetail, isLoading, error } = useCustomQuery<Exercise>(
+    `exerciseDetail-${id}`,
+    id ? `/exercises/exercise/${id}` : ""
+  );
 
   // Handle navigation only on mount or when id changes
   useEffect(() => {

@@ -10,11 +10,13 @@ import "../App.css";
 import BodyPartSkeleton from "../component/BodyPartSkeleton";
 import SkeletonCard from "../component/SkeletonCard";
 
-interface IExercise {
+interface Exercise {
   id: string;
   name: string;
   gifUrl: string;
   bodyPart: string;
+  equipment: string;
+  target: string;
 }
 
 const Exercise = () => {
@@ -39,26 +41,17 @@ const Exercise = () => {
     }
   };
 
-  // Fetch body parts with error handling
-  const { 
-    data: bodyParts, 
-    isLoading: bodyPartsLoading, 
-    error: bodyPartsError,
-    refetch: refetchBodyParts
-  } = useCustomQuery({
-    queryKey: ["bodyparts"],
-    url: "/exercises/bodyPartList",
-  });
+  const {
+    data: exercises,
+    isLoading: isLoadingExercises,
+    error: exercisesError,
+  } = useCustomQuery<Exercise[]>("exercises", "/exercises");
 
-  // Fetch exercises for selected body part
-  const { 
-    data: exercises, 
-    isLoading: exercisesLoading, 
-    error: exercisesError 
-  } = useCustomQuery({
-    queryKey: ["exercises", selectedBodyPart],
-    url: selectedBodyPart ? `/exercises/bodyPart/${selectedBodyPart}` : "",
-  });
+  const {
+    data: bodyParts,
+    isLoading: isLoadingBodyParts,
+    error: bodyPartsError,
+  } = useCustomQuery<string[]>("bodyParts", "/exercises/bodyPartList");
 
   // Debug logs
   useEffect(() => {
@@ -81,13 +74,13 @@ const Exercise = () => {
     setSelectedBodyPart(bodyPart);
   };
 
-  const handleExerciseClick = (exercise: IExercise) => {
+  const handleExerciseClick = (exercise: Exercise) => {
     console.log("Navigating to exercise:", exercise);
     navigate(`/exercise/${exercise.id}`, { state: { exercise } });
   };
 
   const handleRetry = () => {
-    refetchBodyParts();
+    // Implement retry logic
   };
 
   // Show error state if API calls fail
@@ -142,7 +135,7 @@ const Exercise = () => {
             ref={scrollContainerRef}
             className="flex overflow-x-scroll space-x-4 sm:space-x-6 scroll-smooth snap-x snap-mandatory w-[80%] mx-auto hide-scrollbar"
           >
-            {bodyPartsLoading ? (
+            {isLoadingBodyParts ? (
               <BodyPartSkeleton />
             ) : (
               bodyParts?.map((bodyPart: string, id: number) => (
@@ -173,11 +166,11 @@ const Exercise = () => {
               ? `${capitalizeWords(selectedBodyPart)} Exercises`
               : "Select a body part to see exercises"}
           </h2>
-          {exercisesLoading ? (
+          {isLoadingExercises ? (
             <SkeletonCard />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {exercises?.map((exercise: IExercise) => (
+              {exercises?.map((exercise: Exercise) => (
                 <div
                   key={exercise.id}
                   onClick={() => handleExerciseClick(exercise)}
