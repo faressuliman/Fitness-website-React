@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-import { CircleUserRound } from "lucide-react";
 import { FaDumbbell } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import ProfileMenuModal from "./ProfileMenu";

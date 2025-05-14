@@ -1,13 +1,14 @@
-import React from "react";
 import "./HomeCard.css";
 import Image from "../../UI/Image";
 import Button from "../../UI/Button";
+
 interface Iprops {
   imageurl: string;
   title: string;
   description: string;
   className?: string;
 }
+
 const HomeCard = ({ imageurl, title, description, className }: Iprops) => {
   return (
     <div className="card-Home">

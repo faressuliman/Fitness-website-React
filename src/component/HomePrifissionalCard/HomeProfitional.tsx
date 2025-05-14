@@ -1,4 +1,3 @@
-import React from "react";
 import "./HomeProfitional.css";
 interface Iprops {
   imageurl: string;

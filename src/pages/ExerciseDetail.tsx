@@ -1,23 +1,12 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import useCustomQuery from "../Hook/CustomQuery";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-interface IExercise {
-  id: string;
-  name: string;
-  gifUrl: string;
-  bodyPart: string;
-  equipment: string;
-  target: string;
-  instructions: string[];
-}
-
 const ExerciseDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     AOS.init({

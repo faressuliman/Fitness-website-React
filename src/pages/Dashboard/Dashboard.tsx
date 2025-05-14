@@ -1,6 +1,6 @@
 import { Card, CardContent } from "../../component/ui/cards/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Home, Dumbbell, LineChart, Users, Settings, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { FaDumbbell } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
