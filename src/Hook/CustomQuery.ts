@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { axiosInstanceExercise } from "../config/axios.config";
-interface IAuthenticatedQuery{
-    queryKey:string[],
-    url:string,
 
+interface IAuthenticatedQuery {
+  queryKey: [string, ...unknown[]];
+  url: string;
 }
-const useCustomQuery=({queryKey,url}:IAuthenticatedQuery)=>{
-return useQuery({
-    queryKey: queryKey,
+
+const useCustomQuery = ({ queryKey, url }: IAuthenticatedQuery) => {
+  return useQuery({
+    queryKey,
     queryFn: async () => {
       try {
         if (!url) {
@@ -51,6 +52,7 @@ return useQuery({
     enabled: !!url,
     staleTime: 300000, // 5 minutes
     gcTime: 3600000, // 1 hour
-})
-}
-export default useCustomQuery
+  });
+};
+
+export default useCustomQuery;
