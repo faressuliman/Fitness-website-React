@@ -1,16 +1,16 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { useQuery, UseQueryResult, QueryFunctionContext } from "@tanstack/react-query";
 
 import { axiosInstanceExercise } from "../config/axios.config";
 
 interface IAuthenticatedQuery {
-  queryKey: string[];
+  queryKey: readonly [string, ...unknown[]];
   url: string;
 }
 
 const useCustomQuery = <T = any,>({ queryKey, url }: IAuthenticatedQuery): UseQueryResult<T, Error> => {
   return useQuery({
     queryKey,
-    queryFn: async (): Promise<T> => {
+    queryFn: async ({ queryKey }: QueryFunctionContext): Promise<T> => {
       try {
         if (!url) {
           console.error('No URL provided for query:', queryKey);
