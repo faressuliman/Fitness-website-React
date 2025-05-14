@@ -55,7 +55,7 @@ const HeaderExercise = () => {
               className="object-cover object-center w-full h-full"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           </div>
         </motion.div>
       ))}
@@ -66,12 +66,12 @@ const HeaderExercise = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 flex flex-col items-center justify-center gap-8 text-center px-4"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-6 sm:gap-8 text-center px-4"
         >
-          <h1 className="text-white text-lg md:text-[30px] lg:text-[60px] font-bold ">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
             {images[currentImage].title}
           </h1>
-          <p className="text-white text-sm md:text-base  w-full md:w-2/3 lg:w-1/2">
+          <p className="text-white text-sm sm:text-base md:text-lg w-full md:w-2/3 lg:w-1/2 max-w-2xl">
             {images[currentImage].description}
           </p>
         </motion.div>

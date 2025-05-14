@@ -1,4 +1,3 @@
-import React from "react";
 import "./Icon.css";
 const Icon = () => {
   return (

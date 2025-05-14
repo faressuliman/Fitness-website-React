@@ -2,7 +2,7 @@ const ForgotPass = () => {
     return (
       <div className="bg-[url('src/assets/authentication/signup.jpg')] bg-cover bg-center w-full h-screen flex justify-center items-center">
         <div className="w-[400px] h-[400px] rounded-xl p-8 text-gray-100 bg-[#D9D9D94D]">
-          <p className="text-center text-2xl font-bold mb-6">Forgot Password</p>
+          <p className="text-center text-3xl font-bold mb-6">Forgot Password</p>
           <form className="mt-4">
             <div className="text-sm leading-5">
               <label htmlFor="email" className="block text-gray-400 mb-1">
@@ -12,14 +12,15 @@ const ForgotPass = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="w-full rounded-md border border-black outline-none px-4 py-3 text-gray-100 bg-transparent placeholder:text-gray-400 focus:bg-transparent focus:border-black"
+                className="bg-white/30 w-full rounded-md border border-gray-700 outline-none px-4 py-3 text-gray-100 placeholder-white"
                 placeholder="example@email.com"
               />
               <div className="flex justify-end text-xs text-gray-400 mt-2 mb-3">
                 <a
                   rel="noopener noreferrer"
                   href="/ResetPass"
-                  className="text-gray-100 hover:underline hover:underline-offset-2 hover:decoration-purple-300 text-[14px]"
+                  className="text-gray-100 hover:underline hover:underline-offset-2 hover:decoration-purple-300 text-[14px] 
+               transform hover:scale-105 transition-transform duration-300 ease-in-out"
                 >
                   Reset Password
                 </a>
@@ -27,7 +28,7 @@ const ForgotPass = () => {
             </div>
   
             <div className="mx-auto flex justify-center mt-5">
-              <button className="bg-red-600 text-white w-[150px] h-[40px] rounded-full font-semibold flex items-center justify-center">
+              <button className="transform hover:scale-105 transition-transform duration-300 ease-in-out bg-red-600 text-white w-[150px] h-[40px] rounded-full font-semibold flex items-center justify-center">
                 Send Link
               </button>
             </div>

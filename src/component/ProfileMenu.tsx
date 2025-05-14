@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { LogOut } from "lucide-react";
 
 type IProfileMenuModalProps = {
   isOpen: boolean;
@@ -8,12 +9,16 @@ type IProfileMenuModalProps = {
 const ProfileMenuModal = ({ isOpen, onClose }: IProfileMenuModalProps) => {
   const { pathname } = useLocation();
   const storageKey = "loggedInUser";
+  const userDataString = localStorage.getItem(storageKey);
+  const userData = userDataString ? JSON.parse(userDataString) : null;
+
   const onlogout = () => {
     localStorage.removeItem(storageKey);
     setTimeout(() => {
       location.replace(pathname);
     }, 1500);
   };
+
   if (!isOpen) return null;
 
   return (
@@ -24,14 +29,25 @@ const ProfileMenuModal = ({ isOpen, onClose }: IProfileMenuModalProps) => {
         aria-hidden="true"
       ></div>
       {/* Modal Dropdown */}
-      <div className="absolute gap-2 flex flex-col mt-2 w-56 right-[-50px] rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 text-black p-2">
-        <button
-          className="w-full text-left flex items-center gap-2 p-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-          onClick={onlogout}
-        >
-          <span className="text-lg">↩️</span> Log Out
-        </button>
-        <div className="text-center text-xs text-gray-400 pt-2">
+      <div className="absolute right-0 w-48 rounded-lg shadow-lg bg-neutral-800 ring-1 ring-black ring-opacity-5 z-50 overflow-hidden">
+        {/* User Info */}
+        <div className="px-3 py-2 border-b border-neutral-700">
+          <p className="text-xs text-neutral-400">Signed in as</p>
+          <p className="text-sm font-medium text-white truncate">{userData?.user?.email}</p>
+        </div>
+        
+        {/* Actions */}
+        <div>
+          <button
+            className="flex w-full items-center gap-2 px-3 py-2 text-sm text-white hover:bg-red-600 transition-colors"
+            onClick={onlogout}
+          >
+            <LogOut size={16} />
+            <span>Sign out</span>
+          </button>
+        </div>
+        
+        <div className="text-center text-[10px] text-neutral-500 py-1 border-t border-neutral-700">
           © Fitness Exercise
         </div>
       </div>

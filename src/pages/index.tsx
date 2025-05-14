@@ -12,7 +12,7 @@ import Section from "../UI/Section";
 const Home = () => {
 
   useEffect(() => {
-    AOS.init({ 
+    AOS.init({
       duration: 600,
       once: true,
       startEvent: 'DOMContentLoaded',
@@ -22,17 +22,17 @@ const Home = () => {
       easing: 'ease-out'
     });
   }, []);
-  
+
   return (
     <div>
       <div className="pt-16 px-6 md:px-12 lg:px-24 lg:pt-28 bg-[linear-gradient(to_right,_rgba(0,0,0,1)_4%,_rgba(0,0,0,0.07)_100%)] w-full min-h-screen flex flex-col lg:flex-row justify-center items-center space-y-10 lg:space-y-0 lg:space-x-10 mx-auto max-w-full overflow-x-hidden">
         {/* First div description */}
-        <div 
+        <div
           data-aos="fade-right"
           data-aos-delay="100"
           className="flex-1 flex flex-col space-y-6 text-center lg:text-left lg:ml-12 sm:mt-10"
         >
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="200"
             className="font-extrabold text-3xl sm:text-4xl md:text-5xl text-white"
@@ -42,7 +42,7 @@ const Home = () => {
               MOBILE FITNESS AND HEALTH PROFESSIONALS
             </span>
           </p>
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="300"
             className="text-white text-sm sm:text-base md:text-lg"
@@ -58,7 +58,7 @@ const Home = () => {
           >
             GET STARTED
           </a>
-          <div 
+          <div
             data-aos="fade-up"
             data-aos-delay="500"
             className="flex justify-center lg:justify-start items-center space-x-4 flex-wrap gap-y-4"
@@ -85,12 +85,12 @@ const Home = () => {
         </div>
 
         {/* Second div image */}
-        <div 
+        <div
           data-aos="fade-left"
           data-aos-delay="200"
           className="flex-1 flex justify-center overflow-hidden"
         >
-          <div className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[500px] h-auto transform hover:scale-110 transition-all duration-300 origin-center">
+          <div className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[500px] h-auto transform scale-110 transition-all duration-300 origin-center">
             <img
               className="w-full h-full object-contain"
               src="src/assets/home/home-bg.png"
@@ -102,14 +102,14 @@ const Home = () => {
 
       <div className="bg-[#121212]">
         <Section className="text-white py-14 px-6 md:px-12 lg:px-24">
-          <h1 
+          <h1
             data-aos="fade-down"
             data-aos-duration="800"
             className="text-center text-3xl sm:text-4xl md:text-5xl font-bold"
           >
             Why <span className="text-[#FF0000]">Choose Us</span>
           </h1>
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="100"
@@ -122,7 +122,7 @@ const Home = () => {
           <div className="mt-10 space-y-10 lg:space-y-0">
             {/* First row */}
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-stretch mb-10">
-              <div 
+              <div
                 data-aos="zoom-in"
                 data-aos-duration="800"
                 data-aos-delay="150"
@@ -137,7 +137,7 @@ const Home = () => {
                   making every workout private, customized and convenient.
                 </p>
               </div>
-              <div 
+              <div
                 data-aos="zoom-in"
                 data-aos-duration="800"
                 data-aos-delay="250"
@@ -156,7 +156,7 @@ const Home = () => {
 
             {/* Second row */}
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-stretch">
-              <div 
+              <div
                 data-aos="zoom-in"
                 data-aos-duration="800"
                 data-aos-delay="350"
@@ -172,7 +172,7 @@ const Home = () => {
                   technology.
                 </p>
               </div>
-              <div 
+              <div
                 data-aos="zoom-in"
                 data-aos-duration="800"
                 data-aos-delay="450"
@@ -193,7 +193,7 @@ const Home = () => {
         </Section>
 
         <Section className="text-white py-14 px-6">
-          <h1 
+          <h1
             data-aos="zoom-in"
             className="text-center text-5xl font-bold uppercase mb-12"
           >
@@ -204,7 +204,7 @@ const Home = () => {
 
           <div className="flex flex-col lg:flex-row items-center justify-center gap-48">
             {/*Mobile pictures*/}
-            <div 
+            <div
               data-aos="fade-right"
               data-aos-delay="300"
               className="flex flex-row relative w-fit"
@@ -222,7 +222,7 @@ const Home = () => {
             </div>
 
             {/*App features*/}
-            <div 
+            <div
               data-aos="fade-left"
               data-aos-delay="400"
               className="max-w-md space-y-6"
@@ -236,8 +236,8 @@ const Home = () => {
                   "iOS, Android App and Web Portal",
                   "Exercise Video Add-ons",
                 ].map((feature, i) => (
-                  <li 
-                    key={i} 
+                  <li
+                    key={i}
                     data-aos="fade-up"
                     data-aos-delay={500 + (i * 100)}
                     className="flex items-start gap-2 transform hover:translate-x-2 transition-all duration-300"
@@ -248,7 +248,7 @@ const Home = () => {
                 ))}
               </ul>
 
-              <Button 
+              <Button
                 data-aos="fade-up"
                 data-aos-delay="1200"
                 className="mt-6 px-6 py-3 text-[#FF0000] border-2 border-[#FF0000] rounded hover:bg-[#FF0000] hover:text-white transition-all duration-500 font-semibold uppercase tracking-wider transform hover:scale-105"
@@ -259,14 +259,14 @@ const Home = () => {
           </div>
         </Section>
 
-        <Section className="text-white py-28 px-4 sm:px-6 md:px-10 lg:px-24">
-          <h1 
+        <Section className="container mx-auto text-white py-28 px-4 sm:px-6 md:px-10 lg:px-24">
+          <h1
             data-aos="zoom-in"
             className="text-center text-3xl sm:text-4xl md:text-5xl font-bold"
           >
             Our <span className="text-[#FF0000]">Services</span>
           </h1>
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="200"
             className="text-center mt-4 sm:mt-6 text-sm sm:text-base"
@@ -274,13 +274,13 @@ const Home = () => {
             Delivered By Highly Trained Fitness and Health Professionals
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10 justify-items-center sm:justify-items-stretch">
             {serviceData.map((data, indx) => (
-              <div 
-                key={indx} 
+              <div
+                key={indx}
                 data-aos="fade-up"
                 data-aos-delay={300 + (indx * 100)}
-                className="w-full h-full transform hover:scale-105 transition-all duration-300"
+                className="w-full max-w-xs h-full transform hover:scale-105 transition-all duration-300"
               >
                 <HomeCard
                   imageurl={data.image}
@@ -293,14 +293,15 @@ const Home = () => {
           </div>
         </Section>
 
-        <Section className="text-white py-28 px-6">
-          <h1 
+
+        <Section className="container mx-auto text-white py-28 px-6">
+          <h1
             data-aos="zoom-in"
             className="text-center text-3xl sm:text-4xl md:text-5xl font-bold"
           >
             Our professional <span className="text-[#FF0000]">trainers</span>
           </h1>
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="200"
             className="text-center mt-6 text-sm sm:text-base"
@@ -308,19 +309,20 @@ const Home = () => {
             Delivered By Highly Trained Fitness and Health Professionals
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mt-10 justify-items-center sm:justify-items-stretch">
             {profissionalData.map((data, indx) => (
-              <div 
-                key={indx} 
+              <div
+                key={indx}
                 data-aos="fade-up"
-                data-aos-delay={300 + (indx * 100)}
-                className="w-full sm:w-2/3 md:w-1/2 lg:w-auto transform hover:scale-105 transition-all duration-300"
+                data-aos-delay={300 + indx * 100}
+                className="flex justify-center transform hover:scale-105 transition-all duration-300"
               >
                 <HomeProfitional Name={data.Name} imageurl={data.imageurl} />
               </div>
             ))}
           </div>
         </Section>
+
       </div>
     </div>
   );

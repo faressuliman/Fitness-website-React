@@ -4,25 +4,25 @@ export const serviceData:IServideData[]=[
     {
         id:1,
         title:"PERFORMANCE",
-        description :"SPORTS CONDITIONINGPERSONAL / GROUP TRAININGSPECIALTY SERVICES",
+        description :"SPORTS CONDITIONING PERSONAL / GROUP TRAINING SPECIALTY SERVICES",
         image:"/src/assets/home/photo_2025-05-03_17-12-33.jpg"
     },
     {
         id:2,
         title:"EVALUATION",
-        description :"3D BODY SCANIN-DEPTH BODY ASSESSMENTPHYSICAL AND DIETARY ASSESSMENT",
+        description :"3D BODY SCANIN-DEPTH BODY ASSESSMENT PHYSICAL AND DIETARY ASSESSMENT",
         image:"/src/assets/home/photo_2025-05-03_17-13-08.jpg"
     },
     {
         id:3,
         title:"STRENGTH",
-        description :"WEIGHT TRAININGRESISTANCE TRAININGRECOVERY TRAINING",
+        description :"WEIGHT TRAINING, RESISTANCE TRAINING, RECOVERY TRAINING",
         image:"/src/assets/home/59e177f109a545c9cf98dc5166728672.jpg"
     },
     {
         id:4,
         title:"PERFORMANCE",
-        description :"SPORTS CONDITIONINGPERSONAL / GROUP TRAININGSPECIALTY SERVICES",
+        description :"SPORTS CONDITIONING PERSONAL / GROUP TRAINING SPECIALTY SERVICES",
         image:"/src/assets/home/9509de15de991eaae662611c8af5b6d6.jpg"
     }
 ]

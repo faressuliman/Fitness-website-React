@@ -1,139 +1,155 @@
-import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Section from "../UI/Section";
+import { useEffect } from 'react';
+
+
 
 const Blog = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-      startEvent: 'DOMContentLoaded',
-      disable: 'mobile',
-      offset: 50,
-      delay: 0,
-      easing: 'ease-out'
-    });
-  }, []);
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "10 Essential Exercises for Beginners",
-      excerpt: "Start your fitness journey with these fundamental exercises that will help you build strength and confidence.",
-      image: "/src/assets/blog/exercise-beginner.png",
-      date: "March 15, 2024",
-      category: "Fitness Tips"
-    },
-    {
-      id: 2,
-      title: "Nutrition Guide for Muscle Building",
-      excerpt: "Learn about the best foods and supplements to support your muscle growth and recovery.",
-      image: "/src/assets/blog/nutrition.jpeg",
-      date: "March 12, 2024",
-      category: "Nutrition"
-    },
-    {
-      id: 3,
-      title: "The Importance of Rest Days",
-      excerpt: "Understanding why rest days are crucial for your fitness progress and overall health.",
-      image: "/src/assets/blog/rest-day.jpg",
-      date: "March 10, 2024",
-      category: "Health"
-    },
-    {
-      id: 4,
-      title: "How to Stay Motivated",
-      excerpt: "Practical tips and strategies to maintain your motivation throughout your fitness journey.",
-      image: "/src/assets/blog/motivation.jpeg",
-      date: "March 8, 2024",
-      category: "Mindset"
-    }
-  ];
+    useEffect(() => {
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true,     // whether animation should happen only once
+  });
+}, []);
 
   return (
-    <div className="bg-[#121212] min-h-screen">
-      <Section className="text-white py-16 px-6 md:px-12 lg:px-24">
-        <h1 
-          data-aos="fade-down"
-          className="text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-12"
-        >
-          Fitness <span className="text-[#FF0000]">Blog</span>
-        </h1>
+    <div className="bg-[#11111A] w-full min-h-screen py-16 px-4 flex flex-col items-center">
+  <h1 data-aos="fade-up" className="text-white text-6xl mt-10 font-bold mb-12 text-center">
+    Fitness <span className="text-[rgb(255_0_0_/_var(--tw-text-opacity))]">Blog</span>
+  </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {blogPosts.map((post, index) => (
-            <article 
-              key={post.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              className="bg-[#1a1a1a] rounded-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-[#FF0000] text-white px-3 py-1 rounded-full text-sm">
-                  {post.category}
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="text-gray-400 text-sm mb-2">{post.date}</div>
-                <h2 className="text-xl font-semibold mb-3 text-white hover:text-[#FF0000] transition-colors duration-300">
-                  {post.title}
-                </h2>
-                <p className="text-gray-300 mb-4">
-                  {post.excerpt}
-                </p>
-                <button className="text-[#FF0000] font-semibold hover:text-white transition-colors duration-300">
-                  Read More →
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Pagination */}
-        <div className="flex justify-center items-center space-x-2 mt-12">
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">
-            &lt;
-          </button>
-          <button className="w-10 h-10 rounded-full bg-[#FF0000] text-white">1</button>
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">2</button>
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">3</button>
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">4</button>
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">5</button>
-          <button className="w-10 h-10 rounded-full bg-[#1a1a1a] text-white hover:bg-[#FF0000] transition-colors duration-300">
-            &gt;
-          </button>
-        </div>
-
-        {/* Newsletter Section */}
-        <div 
-          data-aos="fade-up"
-          className="mt-16 bg-[#1a1a1a] rounded-lg p-8 text-center"
-        >
-          <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-gray-300 mb-6">
-            Get the latest fitness tips and updates delivered to your inbox.
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-6xl w-full items-stretch">
+    {/* CARD 1 */}
+    <div data-aos="fade-up-left" className="flex flex-col h-full bg-white dark:bg-transparent rounded-2xl shadow-sm border-2 border-transparent overflow-hidden">
+      <a href="#">
+        <img className="w-full h-72 object-cover" src="/src/assets/blog/exercise-beginner.png" alt="Blog preview" />
+      </a>
+      <div className="flex flex-col justify-between flex-grow p-5 bg-[#201f1f]">
+        <div>
+          <p className="text-white pb-5">March 15, 2024</p>
+          <a href="#">
+            <h5 className="pb-4 mb-2 text-2xl font-bold tracking-tight text-white hover:text-red-500 transition-colors duration-200">
+              10 Essential Exercises for Beginners
+            </h5>
+          </a>
+          <p className="mb-3 pb-1 font-normal text-gray-400">
+            Start your fitness journey with these fundamental exercises that will help you build strength and confidence.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-2 rounded-lg bg-[#2a2a2a] text-white border border-gray-600 focus:border-[#FF0000] outline-none"
-            />
-            <button className="px-6 py-2 bg-[#FF0000] text-white rounded-lg hover:bg-red-700 transition-colors duration-300">
-              Subscribe
-            </button>
-          </div>
         </div>
-      </Section>
+        <a href="#" className="inline-flex items-center w-fit px-4 py-3 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 transition-colors duration-200">
+          Read more
+          <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" fill="none" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
     </div>
+
+    {/* CARD 2 */}
+    <div data-aos="fade-up-left" className="flex flex-col h-full bg-white dark:bg-transparent rounded-2xl shadow-sm border-2 border-transparent overflow-hidden">
+      <a href="#">
+        <img className="w-full h-72 object-cover" src="/src/assets/blog/nutrition.jpeg" alt="Blog preview" />
+      </a>
+      <div className="flex flex-col justify-between flex-grow p-5 bg-[#201f1f]">
+        <div>
+          <p className="text-white pb-5">March 12, 2024</p>
+          <a href="#">
+            <h5 className="pb-4 mb-2 text-2xl font-bold tracking-tight text-white hover:text-red-500 transition-colors duration-200">
+              Nutrition Guide for Muscle Building
+            </h5>
+          </a>
+          <p className="mb-3 pb-1 font-normal text-gray-400">
+            Learn about the best foods and supplements to support your muscle growth and recovery.
+          </p>
+        </div>
+        <a href="#" className="inline-flex items-center w-fit px-4 py-3 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 transition-colors duration-200">
+          Read more
+          <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" fill="none" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    {/* CARD 3 */}
+    <div data-aos="fade-up-right" className="flex flex-col h-full bg-white dark:bg-transparent rounded-2xl shadow-sm border-2 border-transparent overflow-hidden">
+      <a href="#">
+        <img className="w-full h-72 object-cover" src="/src/assets/blog/rest-day.jpg" alt="Blog preview" />
+      </a>
+      <div className="flex flex-col justify-between flex-grow p-5 bg-[#201f1f]">
+        <div>
+          <p className="text-white pb-5">March 10, 2024</p>
+          <a href="#">
+            <h5 className="pb-4 mb-2 text-2xl font-bold tracking-tight text-white hover:text-red-500 transition-colors duration-200">
+              The Importance of Rest Days
+            </h5>
+          </a>
+          <p className="mb-3 pb-1 font-normal text-gray-400">
+            Understanding why rest days are crucial for your fitness progress and overall health.
+          </p>
+        </div>
+        <a href="#" className="inline-flex items-center w-fit px-4 py-3 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 transition-colors duration-200">
+          Read more
+          <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" fill="none" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    {/* CARD 4 */}
+    <div data-aos="fade-up-right" className="flex flex-col h-full bg-white dark:bg-transparent rounded-2xl shadow-sm border-2 border-transparent overflow-hidden">
+      <a href="#">
+        <img className="w-full h-72 object-cover" src="/src/assets/blog/motivation.jpeg" alt="Blog preview" />
+      </a>
+      <div className="flex flex-col justify-between flex-grow p-5 bg-[#201f1f]">
+        <div>
+          <p className="text-white pb-5">March 8, 2024</p>
+          <a href="#">
+            <h5 className="pb-4 mb-2 text-2xl font-bold tracking-tight text-white hover:text-red-500 transition-colors duration-200">
+              How to Stay Motivated
+            </h5>
+          </a>
+          <p className="mb-3 pb-1 font-normal text-gray-400">
+            Practical tips and strategies to maintain your motivation throughout your fitness journey.
+          </p>
+        </div>
+        <a href="#" className="inline-flex items-center w-fit px-4 py-3 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 transition-colors duration-200">
+          Read more
+          <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" fill="none" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div data-aos-easing="ease-in-out" data-aos="fade-up" className="mt-20 text-white text-center max-w-2xl mx-auto">
+  <h2 className="text-3xl font-bold mb-2">Sign up for our newsletter</h2>
+  <p className="text-gray-400 mb-6">
+    Get the latest fitness tips and updates delivered to your inbox.
+  </p>
+  <form data-aos="fade-up" className="flex flex-col sm:flex-row justify-center items-center gap-4 text-left">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className=" bg-gray-800 h-12  px-4 text-sm rounded-lg text-white w-full leading-none placeholder:text-gray-400"
+      required
+    />
+    <button
+      type="submit"
+      className="bg-red-600 hover:bg-red-800 text-white px-6 py-2 rounded-lg transition-colors duration-200"
+    >
+      Subscribe
+    </button>
+  </form>
+</div>
+
+</div>
+
+
   );
 };
 
-export default Blog; 
+export default Blog;

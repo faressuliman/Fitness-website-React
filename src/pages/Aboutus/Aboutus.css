@@ -62,7 +62,10 @@
     border-radius: 50%;
     object-fit: cover;
   }
-  
+  .header{
+    position: relative;
+    z-index: 100;
+  }
   .card h2 {
     color: white;
     font-size: 1.4em;
