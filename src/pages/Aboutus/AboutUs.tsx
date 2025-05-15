@@ -75,7 +75,7 @@ const AboutUs = () => {
             />
           </svg>
           <span className="ms-1 text-sm font-medium text-gray-200 md:ms-2">
-            Flowbite
+            FlowForma
           </span>
         </div>
       </li>
