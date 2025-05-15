@@ -80,7 +80,7 @@ const ExerciseDetail = () => {
         <button
           data-aos="fade-right"
           onClick={() => navigate('/exercises')}
-          className="mb-8 flex items-center text-red-600 hover:text-red-700 transition-colors text-lg"
+          className="mt-8 mb-8 flex items-center text-red-600 hover:text-red-700 transition-colors text-lg"
         >
           <span className="mr-2">←</span> Back to Exercises
         </button>
